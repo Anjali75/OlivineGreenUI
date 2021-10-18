@@ -19,7 +19,10 @@ class _ThirdPageState extends State<ThirdPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.only(left: 10.0, right: 10, top: 25),
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.03,
+          right: MediaQuery.of(context).size.width * 0.03,
+          top: MediaQuery.of(context).padding.top * 0.1),
       child: SafeArea(
         child: ListView(children: [
           Row(
@@ -39,9 +42,6 @@ class _ThirdPageState extends State<ThirdPage> {
               ),
             ],
           ),
-          SizedBox(
-            height: size.height * 0.015,
-          ),
           Container(
             height: size.height * 0.25,
             width: size.width,
@@ -55,11 +55,13 @@ class _ThirdPageState extends State<ThirdPage> {
                   image: AssetImage(
                     "assets/images/Broccoli.png",
                   ),
-                  height: size.height * 0.16,
+                  height: size.height * 0.19,
                   width: size.width * 0.85,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 50.0, left: 8),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.02,
+                      left: MediaQuery.of(context).size.width * 0.02),
                   child: Row(
                     children: [
                       Text(
@@ -90,7 +92,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     fontWeight: FontWeight.bold, fontSize: 18),
               ),
               SizedBox(
-                width: size.width * 0.45,
+                width: size.width * 0.42,
               ),
               Text(
                 "kg",
@@ -108,46 +110,67 @@ class _ThirdPageState extends State<ThirdPage> {
           ),
           RangeSliderr(),
           SizedBox(height: size.height * 0.012),
-          Row(
-            children: [
-              Text(
-                "About",
-                style: GoogleFonts.montserrat(
-                    fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: size.width * 0.7,
-              ),
-              Icon(Icons.arrow_drop_down)
-            ],
-          ),
-          SizedBox(height: size.height * 0.011),
-          ExpandableText(
-            "Broccoli is an edible green plant in the cabbage family whose large flowering head, stalk and small associated leaves are eaten as a vegetable.Broccoli is classified .Broccoli is an edible green plant in the cabbage family whose large flowering head, Broccoli is an edible green plant in the cabbage family whose large flowering head, ",
-            style: GoogleFonts.montserrat(
-              fontSize: 15.0,
+          Theme(
+            data: ThemeData(
+              dividerColor: Colors.transparent,
             ),
-            expandText: 'show more',
-            collapseText: 'show less',
-          ),
-          SizedBox(
-            height: size.height * 0.01,
-          ),
-          Row(
-            children: [
-              Text(
-                "Nutrition Details",
-                style: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+            child: ListTileTheme(
+              contentPadding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.03),
+              child: ExpansionTile(
+                initiallyExpanded: true,
+                title: Text(
+                  "About",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    decorationColor: Colors.black,
+                    color: Colors.black,
+                  ),
+                ),
+                children: [
+                  ExpandableText(
+                    "Broccoli is an edible green plant in the cabbage family whose large flowering head, stalk and small associated leaves are eaten as a vegetable.Broccoli is classified .Broccoli is an edible green plant in the cabbage family whose large flowering head, Broccoli is an edible green plant in the cabbage family whose large flowering head, ",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 15.0,
+                    ),
+                    expandText: "Show More",
+                    collapseText: 'show less',
+                  )
+                ],
               ),
-              SizedBox(
-                width: size.width * 0.43,
-              ),
-              Icon(Icons.arrow_drop_down)
-            ],
+            ),
           ),
-          SizedBox(
-            height: size.height * 0.017,
+          Theme(
+            data: ThemeData(
+              dividerColor: Colors.transparent,
+            ),
+            child: ListTileTheme(
+              contentPadding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.03),
+              child: ExpansionTile(
+                //initiallyExpanded: true,
+                title: Text(
+                  "Nutrition Detail",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    decorationColor: Colors.black,
+                    color: Colors.black,
+                  ),
+                ),
+                children: [
+                  ExpandableText(
+                    "Broccoli is an edible green plant in the cabbage family whose large flowering head, stalk and small associated leaves are eaten as a vegetable.Broccoli is classified .Broccoli is an edible green plant in the cabbage family whose large flowering head, Broccoli is an edible green plant in the cabbage family whose large flowering head, ",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 15.0,
+                    ),
+                    expandText: "Show More",
+                    collapseText: 'show less',
+                  )
+                ],
+              ),
+            ),
           ),
           Container(
             child: Column(
@@ -167,7 +190,7 @@ class _ThirdPageState extends State<ThirdPage> {
                       style: GoogleFonts.montserrat(),
                     ),
                     SizedBox(
-                      width: size.width * 0.43,
+                      width: size.width * 0.4,
                     ),
                     Text(
                       "₹ 20.00",
@@ -182,7 +205,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 Row(children: [
                   const Icon(
                     Icons.timelapse_sharp,
-                    size: 30,
+                    size: 25,
                   ),
                   SizedBox(
                     width: size.width * 0.009,
@@ -192,7 +215,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     style: GoogleFonts.montserrat(),
                   ),
                   SizedBox(
-                    width: size.width * 0.5,
+                    width: size.width * 0.48,
                   ),
                   Text(
                     "30 min",

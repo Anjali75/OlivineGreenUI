@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:sabji_mandi/models/categories.dart';
 import 'package:sabji_mandi/models/grid.dart';
+
+import 'cart.dart';
 
 class NextPage extends StatefulWidget {
   const NextPage({Key? key}) : super(key: key);
@@ -35,19 +38,18 @@ class _NextPageState extends State<NextPage> {
                     fontWeight: FontWeight.bold, fontSize: 18),
               ),
               SizedBox(
-                width: size.width * 0.45,
+                width: MediaQuery.of(context).size.width * 0.42,
               ),
               Container(
-                height: size.height * 0.04,
-                width: size.width * 0.09,
                 decoration: BoxDecoration(
-                    color: Colors.orange[200],
-                    borderRadius: BorderRadius.circular(10.0)),
-                child: Center(
-                  child: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.shopping_bag)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: HexColor("#FCD17D"),
                 ),
-              ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Icon(Icons.shopping_bag_outlined),
+                ),
+              )
             ],
           ),
           SizedBox(
@@ -81,7 +83,8 @@ class _NextPageState extends State<NextPage> {
                     fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 250.0),
+                padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).padding.left * 0.5),
                 child: Icon(Icons.filter_list),
               )
             ],

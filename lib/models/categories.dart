@@ -16,7 +16,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.15,
+      height: MediaQuery.of(context).size.height * 0.16,
       width: MediaQuery.of(context).size.width * 0.9,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -36,8 +36,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     MaterialPageRoute(builder: (context) => NextPage()));
               },
               child: Container(
-                width: 100,
-                height: 80,
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: MediaQuery.of(context).size.height * 0.10,
                 decoration: BoxDecoration(
                   color: catcontents[i].color,
                   borderRadius: BorderRadius.circular(10),
@@ -48,8 +48,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     children: [
                       Image.asset(
                         catcontents[i].image,
-                        height: 60,
-                        width: 60,
+                        height: MediaQuery.of(context).size.height * 0.065,
+                        width: MediaQuery.of(context).size.width * 0.14,
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -76,6 +76,7 @@ class PopularElement extends StatefulWidget {
 class _PopularElementState extends State<PopularElement> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
       height: 200,
       width: 200,

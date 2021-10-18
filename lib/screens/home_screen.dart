@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:sabji_mandi/models/basket.dart';
 import 'package:sabji_mandi/models/categories.dart';
 import 'package:sabji_mandi/screens/cart.dart';
 
@@ -15,14 +16,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
         child: SafeArea(
           child: ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.01),
                 child: Column(
                   children: [
                     Row(
@@ -47,28 +50,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 45.0, top: 10, bottom: 5),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CartSection()));
-                            },
-                            child: Container(
-                              height: size.height * 0.04,
-                              width: size.width * 0.09,
-                              decoration: BoxDecoration(
-                                  color: HexColor("#FFCBA4"),
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              child: Center(
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.shopping_bag)),
-                              ),
-                            ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: HexColor("#FCD17D"),
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Icon(Icons.shopping_bag_outlined),
                           ),
                         )
                       ],
@@ -102,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 height: size.height * 0.25,
-                width: size.width * 0.25,
+                width: size.width * 0.20,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/images/Group 610.png"),
@@ -119,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   SizedBox(
-                    width: size.width * 0.58,
+                    width: size.width * 0.6,
                   ),
                   Icon(Icons.arrow_drop_down)
                 ],
@@ -138,10 +130,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 170.0),
-                    child: Icon(Icons.filter_list),
-                  )
+                  SizedBox(
+                    width: size.width * 0.4,
+                  ),
+                  Icon(Icons.filter_list)
                 ],
               ),
               SizedBox(

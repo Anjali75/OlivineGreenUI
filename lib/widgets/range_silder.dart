@@ -25,6 +25,8 @@ class _RangeSliderrState extends State<RangeSliderr> {
             thumbColor: Colors.orange,
             overlayColor: Colors.green,
             activeTrackColor: Colors.orange,
+            disabledActiveTickMarkColor: Colors.red,
+            disabledThumbColor: Colors.green,
             disabledInactiveTickMarkColor: Colors.transparent),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +39,11 @@ class _RangeSliderrState extends State<RangeSliderr> {
               //activeColor: Colors.orange,
               //inactiveColor: Colors.pink[100],
               label: value.round().toString(),
-              onChanged: (value) => this.value = value,
+              onChanged: (value) {
+                setState(() {
+                  this.value = value;
+                });
+              },
             )
           ],
         ),
